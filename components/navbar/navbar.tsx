@@ -4,30 +4,27 @@ import DarkThemeButton from "../buttons/dark-theme-button";
 import useTheme from "../../hooks/use-theme";
 
 export default function Navbar() {
-    const { theme, setTheme } = useTheme();
-    
+    const {theme, setTheme} = useTheme();
     return (
-        <nav id="navbar" className="bg-redish-pink text-2xl font-semibold flex flex-row w-full items-center px-5 h-full">
+        <nav id="navbar" className="bg-greenish text-2xl font-semibold flex flex-row w-full items-center px-5 h-full">
             <div id="links" className="flex flex-row gap-5">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="">Contact</NavLink>
                 <NavLink to="">Project</NavLink>
                 <NavLink to="">Tech</NavLink>
             </div>
-            <div id="theme-switcher-container" className="w-[50px] h-[50px] ml-auto">
-                {theme === "dark" ? (
-                    <>
-                        <LightThemeButton switcher={() => {
-                            setTheme("light");
-                        }} />
-                    </>
-                ) : theme === "light" ? (
-                    <>
-                        <DarkThemeButton switcher={() => {
-                            setTheme("dark");
-                        }} />
-                    </>
-                ) : (<></>)}
+            <div id="theme-switcher-container" className="w-[50px] h-[50px] ml-auto"> 
+                {theme === "light" ? (
+                    <DarkThemeButton switcher={() => {
+                        setTheme(true);
+                    }} />
+                ) : theme === "dark" ? (
+                    <LightThemeButton switcher={() => {
+                        setTheme(false);
+                    }} />
+                ) : (
+                    <></>
+                )}
             </div>
         </nav>
     )
