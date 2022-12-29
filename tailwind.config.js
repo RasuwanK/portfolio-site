@@ -12,7 +12,10 @@ module.exports = {
         "dark-blue": "#1A1A2E",
         "light-blue": "#0F3460",
         "dark-custard": "#867A7A",
-        "light-custard": "#DBC8AC"
+        "light-custard": "#DBC8AC",
+        "light-white":"#DBEDF3",
+        "greenish":"#00818A",
+        "dark-black":"#283149"
       },
     },
   },
