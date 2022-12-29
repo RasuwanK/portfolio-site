@@ -1,9 +1,6 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import { Poppins } from '@next/font/google';
-import NavLink from './navbar/nav-link';
-import useTheme from '../hooks/use-theme';
-import DarkThemeButton from './buttons/dark-theme-button';
-import LightThemeButton from './buttons/light-theme-button';
+import Navbar from './navbar/navbar';
 
 interface LayoutProps {
     children: ReactNode;
@@ -11,43 +8,20 @@ interface LayoutProps {
 
 const poppinsFont = Poppins({
     subsets: ['latin'],
-    weight: ['400', '600', '800'],
+    weight: ['400', '600', '800', "700"],
 });
 
 type ThemeChoice = "dark" | "light";
 
 export default function Layout({ children }: LayoutProps) {
-    const { theme, setTheme } = useTheme();
 
     return (
         // Holding the entire page layout (each page shares this layout)
         <div id="layout" className={`${poppinsFont.className}`}>
-            <header id="header-content">
-                <nav id="navbar" className="bg-redish-pink text-2xl font-semibold flex flex-row w-full items-center px-5 h-[80px]">
-                    <div id="links" className="flex flex-row gap-5">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="">Contact</NavLink>
-                        <NavLink to="">Project</NavLink>
-                        <NavLink to="">Tech</NavLink>
-                    </div>
-                    <div id="theme-switcher-container" className="w-[50px] h-[50px] ml-auto">
-                        {theme === "dark" ? (
-                            <>
-                                <LightThemeButton switcher={() => {
-                                    setTheme("light");
-                                }} />
-                            </>
-                        ) : theme === "light" ? (
-                            <>
-                                <DarkThemeButton switcher={() => {
-                                    setTheme("dark");
-                                }} />
-                            </>
-                        ) : (<></>)}
-                    </div>
-                </nav>
+            <header id="header-content" className="fixed top-0 w-full h-[80px]">
+                <Navbar />
             </header>
-            <div id="page-holder">
+            <div id="page-holder" className="mt-[80px] bg-light-custard dark:bg-dark-blue">
                 {children}
             </div>
             <footer id="footer-content"></footer>
