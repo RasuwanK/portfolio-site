@@ -10,11 +10,11 @@ export default function App({ Component, pageProps }: AppProps) {
       console.log("loaded !");
       // Obtaining theme value from the localstorage
       const theme = localStorage.getItem("theme");
-      if(theme) {
+      if (theme) {
         // If theme is available in the local storage then use it
         document.documentElement.classList.add(theme);
       } else {
-        if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           // If not awailable then prefer system theme preference
           localStorage.setItem("theme", "dark");
           document.documentElement.classList.add("dark");
@@ -23,8 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
           document.documentElement.classList.add("light");
         }
       }
-    } 
-  
+    }
+
     // Theme is applied after the body is loaded
     window.addEventListener("load", themeCallback);
 
