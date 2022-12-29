@@ -18,10 +18,10 @@ export default function Layout({ children }: LayoutProps) {
     return (
         // Holding the entire page layout (each page shares this layout)
         <div id="layout" className={`${poppinsFont.className}`}>
-            <header id="header-content" className="fixed top-0 w-full h-[80px]">
+            <header id="header-content" className="z-10 fixed top-0 w-full h-[80px]">
                 <Navbar />
             </header>
-            <div id="page-holder" className="mt-[80px] bg-light-custard dark:bg-dark-blue">
+            <div id="page-holder" className="mt-[80px] z-0 bg-light-white dark:bg-dark-black">
                 {children}
             </div>
             <footer id="footer-content"></footer>
