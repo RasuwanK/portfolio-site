@@ -10,7 +10,7 @@ export default function LightThemeButton({switcher}: ThemeButtonProps) {
         <button
             onClick={() => switcher()} 
             id="theme-switch" 
-            className="w-full h-full p-2 drop-shadow-md text-light-blue bg-light-custard rounded-full border-2 border-light-blue"
+            className="w-full h-full p-2 drop-shadow-md text-dark-black bg-light-white rounded-full"
         >
             <FontAwesomeIcon icon={faSun} />
         </button>
