@@ -1,30 +1,34 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
-type ThemeChoice = "dark" | "light" | "loading";
+type ThemeChoice = "dark" | "light";
 
 // To use this hook theme must be initialized at _app
 export default function useTheme() {
-    const [theme, setTheme] = useState<ThemeChoice>("loading");
-
+    const [theme, setTheme] = useState<ThemeChoice | undefined>(undefined);
     useEffect(() => {
-        setTheme(document.documentElement.classList[0] as ThemeChoice);
-    }, []);
-
-    useEffect(() => {
-        const htmlClassList = document.documentElement.classList;
-        if(theme === "dark") {
-            htmlClassList.remove("light");
-            htmlClassList.add("dark");
-            localStorage.setItem("theme", "dark");
+        const theme = document.documentElement.classList.contains("dark");
+        if (theme) {
+            setTheme("dark");
         } else {
-            htmlClassList.remove("dark");
-            htmlClassList.add("light");
-            localStorage.setItem("theme", "light");
+            setTheme("light");
         }
-    }, [theme]);
+    }, []);
 
     return {
         theme,
-        setTheme,
+        setTheme: (isDark: boolean) => {
+            const documentClassList = document.documentElement.classList;
+            if (isDark) {
+                setTheme("dark");
+                documentClassList.remove("light");
+                documentClassList.add("dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                setTheme("light");
+                documentClassList.remove("dark");
+                documentClassList.add("light");
+                localStorage.setItem("theme", "light");
+            }
+        },
     }
 }

@@ -10,7 +10,7 @@ export default function NavLink({ children, to }: NavLinkProps) {
   return (
     <Link
       href={to}
-      className="text-light-blue hover:underline"
+      className="text-light-white hover:underline"
     >
       {children}
     </Link>
