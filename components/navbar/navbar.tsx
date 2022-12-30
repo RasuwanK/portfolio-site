@@ -16,11 +16,11 @@ export default function Navbar() {
             <div id="theme-switcher-container" className="w-[50px] h-[50px] ml-auto"> 
                 {theme === "light" ? (
                     <DarkThemeButton switcher={() => {
-                        setTheme(true);
+                        setTheme("dark");
                     }} />
                 ) : theme === "dark" ? (
                     <LightThemeButton switcher={() => {
-                        setTheme(false);
+                        setTheme("light");
                     }} />
                 ) : (
                     <></>
