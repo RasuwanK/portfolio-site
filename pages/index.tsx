@@ -10,7 +10,7 @@ import {
 import {
   faPhone,
   faEnvelope,
-  faDesktop
+  faLaptopCode
 } from "@fortawesome/free-solid-svg-icons";
 import ContactLink from '../components/index/contact-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -82,35 +82,51 @@ export default function Home() {
             </li>
           </ul>
         </article>
-        <article id="projects" className="w-[80%] drop-shadow-md grid grid-rows-10%-auto gap-10 bg-dark-teal dark:bg-light-black py-10 px-5 rounded-[12px] h-[500px]">
+        <article className="w-[60%] flex flex-col gap-3">
           <header className="w-full">
-            <h1 className="text-4xl text-center font-bold text-dark-black dark:text-light-white">Projects</h1>
+            <h1 className="text-4xl text-center text-dark-black dark:text-light-white font-bold">Projects</h1>
           </header>
-          <section id="projects-data" className="grid grid-cols-1-to-2-400 gap-2 py-4 w-full h-full">
-            <aside id="project-list" className='w-full h-full rounded-[12px] py-5 border-2 border-greenish dark:border-dark-black'>
-              <ul className="flex flex-col items-center">
-                <li id="project-item" className="w-[95%]">
-                  <button className="w-full p-2 text-center rounded-[5px] bg-greenish dark:bg-dark-black text-light-white">
-                    <cite className="not-italic">The weather station</cite>
-                  </button>
-                </li>
-              </ul>
-            </aside>
-            <article className="flex flex-col gap-4 items-center overflow-y-scroll py-5 border-2 border-greenish dark:border-dark-black rounded-[10px]">
-              <header className="w-[80%]">
-                <h3 className="text-2xl text-center font-bold dark:text-light-white text-dark-black">The weather station</h3>
+          <section className="grid grid-cols-[150px_auto] items-center gap-10 bg-dark-teal dark:bg-light-black w-full p-10 rounded-[12px]">
+            <div id="github-logo-container" className="w-[150px] h-[150px]">
+              <FontAwesomeIcon icon={faGithub} className="text-dark-black dark:text-light-white" />
+            </div>
+            <div id="description" className="w-full flex flex-col gap-3">
+              <header>
+                <h3 className="text-center text-2xl font-semibold text-dark-blue dark:text-light-white">Looking for projects</h3>
               </header>
-              <figure className="w-[80%] flex flex-col items-center gap-3">
-                <Image
-                  src={screenshotWeatherApp}
-                  alt="Screenshot of weather app"
-                  width={400}
-                  className="rounded-[5px]"
-                />
-                <figcaption className="text-dark-black dark:text-light-white">Screenshot of the weather station</figcaption>
-              </figure>
-              <p id="project-description" className="w-[80%] text-center text-dark-black dark:text-light-white">This app determines your current live location and  provides you the accurate weather based on that location. A user can obtain current temperature , humidity, and also air pollution.</p>
-            </article>
+              <p className="text-dark-black dark:text-light-white text-center">If you are looking for projects visit my <a href="https://github.com/RasuwanK" className="hover:underline"><strong>github profile</strong></a>.</p>
+              <p className="text-dark-black dark:text-light-white text-center">There {`you'll`} find their source code and demo</p>
+              <a
+                href="https://github.com/RasuwanK"
+                className="text-center font-semibold text-dark-blue dark:text-light-white hover:underline"
+              >
+                Visit my profile
+              </a>
+            </div>
+          </section>
+          <section className="grid grid-cols-[150px_auto] items-center gap-10 bg-dark-teal w-full p-10 rounded-[12px]">
+            <div id="github-logo-container" className="w-[150px] h-[150px]">
+              <FontAwesomeIcon icon={faLaptopCode} className="text-dark-black" />
+            </div>
+            <div id="description" className="w-full flex flex-col gap-3">
+              <header>
+                <h3 className="text-center text-2xl font-semibold text-dark-blue">Looking to get some work done</h3>
+              </header>
+              <p className="text-dark-black text-center">If you want to have a fully working web app with latest tech and reasonable price</p>
+              <p className="text-dark-black text-center">Then <a
+                href="https://github.com/RasuwanK"
+                className="text-center text-dark-blue hover:underline"
+              >
+                <strong>visit my fiverr account.</strong>
+              </a></p>
+              <p className="text-dark-black text-center">Or else if you want to get some work done by directly communicating me then email me at {` `}
+              <a 
+                href="mailto:kalharaweragala@gmail.com" 
+                className="text-center text-dark-blue hover:underline"
+              >
+                <strong>kalharaweragala@gmail.com</strong>
+              </a></p>
+            </div>
           </section>
         </article>
       </main>
