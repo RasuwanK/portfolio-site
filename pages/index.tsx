@@ -2,7 +2,7 @@ import Head from 'next/head';
 import GreetingMessage from '../components/index/greeting-message';
 import Image from 'next/image';
 import me from "../public/me.png";
-import screenshotWeatherApp from "../public/weather-app-snap.png";
+import digitalPin from "../public/pin-student.jpg";
 import {
   faTwitter,
   faGithub,
@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ContactLink from '../components/index/contact-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import InfoCard from '../components/index/info-card';
 
 export default function Home() {
   return (
@@ -49,7 +50,7 @@ export default function Home() {
         </article>
         <article id="contact-list" className="w-[80%] flex flex-col items-center">
           <header className="w-full">
-            <h1 className="text-4xl text-center font-bold text-dark-black dark:text-light-white">Contact me</h1>
+            <h1 className="text-3xl sm:text-4xl text-center font-bold text-dark-black dark:text-light-white">Contact me</h1>
           </header>
           <ul className="flex flex-row items-center gap-5 flex-wrap justify-center w-full">
             <li className="flex flex-col items-stretch">
@@ -82,52 +83,77 @@ export default function Home() {
             </li>
           </ul>
         </article>
-        <article className="w-[60%] flex flex-col gap-3">
+        <article className="w-[95%] sm:w-[80%] lg:w-[60%] flex flex-col gap-3">
           <header className="w-full">
-            <h1 className="text-4xl text-center text-dark-black dark:text-light-white font-bold">Projects</h1>
+            <h1 className="text-3xl sm:text-4xl text-center text-dark-black dark:text-light-white font-bold">Projects</h1>
           </header>
-          <section className="grid grid-cols-[150px_auto] items-center gap-10 bg-dark-teal dark:bg-light-black w-full p-10 rounded-[12px]">
-            <div id="github-logo-container" className="w-[150px] h-[150px]">
-              <FontAwesomeIcon icon={faGithub} className="text-dark-black dark:text-light-white" />
-            </div>
-            <div id="description" className="w-full flex flex-col gap-3">
-              <header>
-                <h3 className="text-center text-2xl font-semibold text-dark-blue dark:text-light-white">Looking for projects</h3>
-              </header>
-              <p className="text-dark-black dark:text-light-white text-center">If you are looking for projects visit my <a href="https://github.com/RasuwanK" className="hover:underline"><strong>github profile</strong></a>.</p>
-              <p className="text-dark-black dark:text-light-white text-center">There {`you'll`} find their source code and demo</p>
-              <a
-                href="https://github.com/RasuwanK"
-                className="text-center font-semibold text-dark-blue dark:text-light-white hover:underline"
-              >
-                Visit my profile
-              </a>
-            </div>
-          </section>
-          <section className="grid grid-cols-[150px_auto] items-center gap-10 bg-dark-teal w-full p-10 rounded-[12px]">
-            <div id="github-logo-container" className="w-[150px] h-[150px]">
-              <FontAwesomeIcon icon={faLaptopCode} className="text-dark-black" />
-            </div>
-            <div id="description" className="w-full flex flex-col gap-3">
-              <header>
-                <h3 className="text-center text-2xl font-semibold text-dark-blue">Looking to get some work done</h3>
-              </header>
-              <p className="text-dark-black text-center">If you want to have a fully working web app with latest tech and reasonable price</p>
-              <p className="text-dark-black text-center">Then <a
-                href="https://github.com/RasuwanK"
-                className="text-center text-dark-blue hover:underline"
-              >
-                <strong>visit my fiverr account.</strong>
-              </a></p>
-              <p className="text-dark-black text-center">Or else if you want to get some work done by directly communicating me then email me at {` `}
-              <a 
-                href="mailto:kalharaweragala@gmail.com" 
-                className="text-center text-dark-blue hover:underline"
-              >
-                <strong>kalharaweragala@gmail.com</strong>
-              </a></p>
-            </div>
-          </section>
+          <InfoCard
+            left={
+              <div id="logo-container" className="w-[150px] h-[150px]">
+                <FontAwesomeIcon icon={faGithub} className="text-dark-black dark:text-light-white" />
+              </div>
+            }
+            title="Looking for projects"
+            content={
+              <>
+                <p className="dark:text-light-white text-center">If you are looking for projects visit my <a href="https://github.com/RasuwanK" className="hover:underline"><strong>github profile</strong></a>.</p>
+                <p className="dark:text-light-white text-center">There {`you'll`} find their source code and demo</p>
+                <a
+                  href="https://github.com/RasuwanK"
+                  className="text-center font-semibold dark:text-light-white hover:underline"
+                >
+                  Visit my profile
+                </a>
+              </>
+            }
+          />
+          <InfoCard
+            left={
+              <div id="logo-container" className="w-[150px] h-[150px]">
+                <FontAwesomeIcon icon={faLaptopCode} />
+              </div>
+            }
+            title="Looking to get some work done"
+            content={
+              <>
+                <p className="text-center">If you want to have a fully working web app with latest tech and reasonable price</p>
+                <p className="text-center">Then <a
+                  href="https://github.com/RasuwanK"
+                  className="text-center hover:underline"
+                >
+                  <strong>visit my fiverr account.</strong>
+                </a></p>
+                <p className="text-center">Or else if you want to get some work done by directly communicating me then email me at {` `}
+                  <a
+                    href="mailto:kalharaweragala@gmail.com"
+                    className="text-center hover:underline"
+                  >
+                    <strong>kalharaweragala@gmail.com</strong>
+                  </a></p>
+              </>
+            }
+          />
+        </article>
+        <article className="w-[95%] sm:w-[80%] lg:w-[60%] flex flex-col gap-3">
+          <header>
+            <h1 className="text-3xl sm:text-4xl text-center text-dark-black dark:text-light-white font-bold">Qualifications</h1>
+          </header>
+          <InfoCard
+            left={
+              <data value="995113794">
+                <Image
+                  alt="My BCS digital pin badge"
+                  width={150}
+                  height={150}
+                  src={digitalPin}
+                />
+              </data>
+            }
+            title="I'm a member of British Computer Society since 2022"
+            content={
+              <p className="text-center">Membership id: <data value="995113794">995113794</data></p>
+            }
+          />
         </article>
       </main>
     </>
